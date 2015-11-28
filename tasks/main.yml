@@ -1,0 +1,11 @@
+---
+
+- zfs: name={{dataset}} state=present mountpoint={{mount_path}}
+
+- command: pkgrepo create {{mount_path}},
+  args:
+    creates: "{{mount_path}}/pkg5.repository"
+
+- command: pkgrepo set -s {{mount_path}} publisher/prefix={{publisher}}
+  args:
+    creates: "{{mount_path}}/publisher/{{publisher}}"
