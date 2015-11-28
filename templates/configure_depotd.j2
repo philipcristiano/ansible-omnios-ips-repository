@@ -1,0 +1,7 @@
+#!/usr/bin/bash -e
+
+svcadm disable pkg/server
+svccfg -s pkg/server setprop pkg/inst_root = {{mount_path}}
+svccfg -s pkg/server setprop pkg/port = {{depotd_port}}
+svcadm refresh pkg/server
+svcadm enable pkg/server

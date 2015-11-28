@@ -1,0 +1,4 @@
+---
+
+- command: "{{mount_path}}/scripts/configure_depotd.sh"
+  name: configure depotd

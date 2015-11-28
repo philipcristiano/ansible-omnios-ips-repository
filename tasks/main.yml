@@ -9,3 +9,9 @@
 - command: pkgrepo set -s {{mount_path}} publisher/prefix={{publisher}}
   args:
     creates: "{{mount_path}}/publisher/{{publisher}}"
+
+- file: path="{{mount_path}}/scripts" state=directory
+
+- template: src=configure_depotd.j2 dest="{{mount_path}}/scripts/configure_depotd.sh" mode=0700
+  notify:
+  - configure depotd
