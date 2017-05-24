@@ -3,5 +3,6 @@
 svcadm disable pkg/server
 svccfg -s pkg/server setprop pkg/inst_root = {{mount_path}}
 svccfg -s pkg/server setprop pkg/port = {{depotd_port}}
+svccfg -s pkg/server setprop pkg/readonly = {{readonly}}
 svcadm refresh pkg/server
 svcadm enable pkg/server
